@@ -1,0 +1,609 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://scenes/ships/ship_overlay.gd" type="Script" id=1]
+[ext_resource path="res://art/gui/menus/lcd/circle08.png" type="Texture" id=2]
+[ext_resource path="res://art/gui/menus/computer_element1.png" type="Texture" id=3]
+[ext_resource path="res://art/gui/themes/menu_text_theme.tres" type="Theme" id=4]
+[ext_resource path="res://art/gui/menus/lcd/sensor_lcd.png" type="Texture" id=5]
+[ext_resource path="res://fonts/UbuntuMono-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://art/rock/purple_rocks/purple_rock_seamless.png" type="Texture" id=7]
+[ext_resource path="res://art/shields/shield_1/00.png" type="Texture" id=8]
+[ext_resource path="res://art/shields/shield_1/01.png" type="Texture" id=9]
+[ext_resource path="res://art/shields/shield_1/02.png" type="Texture" id=10]
+[ext_resource path="res://art/shields/shield_1/03.png" type="Texture" id=11]
+[ext_resource path="res://art/shields/shield_1/04.png" type="Texture" id=12]
+[ext_resource path="res://art/shields/shield_1/05.png" type="Texture" id=13]
+[ext_resource path="res://art/shields/shield_1/06.png" type="Texture" id=14]
+[ext_resource path="res://art/shields/shield_1/07.png" type="Texture" id=15]
+[ext_resource path="res://art/shields/shield_1/08.png" type="Texture" id=16]
+[ext_resource path="res://art/shields/shield_1/09.png" type="Texture" id=17]
+[ext_resource path="res://art/shields/shield_1/10.png" type="Texture" id=18]
+[ext_resource path="res://art/shields/shield_1/11.png" type="Texture" id=19]
+[ext_resource path="res://art/shields/shield_1/12.png" type="Texture" id=20]
+[ext_resource path="res://art/shields/shield_1/13.png" type="Texture" id=21]
+[ext_resource path="res://art/shields/shield_1/14.png" type="Texture" id=22]
+[ext_resource path="res://art/shields/shield_1/15.png" type="Texture" id=23]
+[ext_resource path="res://art/shields/shield_1/16.png" type="Texture" id=24]
+[ext_resource path="res://art/shields/shield_1/17.png" type="Texture" id=25]
+[ext_resource path="res://art/shields/shield_1/18.png" type="Texture" id=26]
+[ext_resource path="res://art/shields/shield_1/19.png" type="Texture" id=27]
+[ext_resource path="res://art/ships/faction_0/F5S2.png" type="Texture" id=28]
+[ext_resource path="res://art/gui/paternus.png" type="Texture" id=29]
+[ext_resource path="res://art/lights/light.png" type="Texture" id=30]
+[ext_resource path="res://music/sound_effects/beeps/Eerie_Pulse_5.wav" type="AudioStream" id=31]
+[ext_resource path="res://music/sound_effects/beeps/Eerie_Pulse_3.wav" type="AudioStream" id=32]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 18
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=2]
+
+default_font = SubResource( 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "pulse_shield"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("shield:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shield:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[node name="overlay" type="Node2D" index="0"]
+z_index = 1
+script = ExtResource( 1 )
+
+[node name="target_click" type="TextureRect" parent="." index="0"]
+modulate = Color( 0, 0.59375, 0.148438, 0 )
+light_mask = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 1245.0
+margin_bottom = 1197.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 3
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="selector" type="Sprite" parent="." index="1"]
+visible = false
+modulate = Color( 0.03125, 1, 0, 1 )
+light_mask = 0
+position = Vector2( -0.440659, 2.74031 )
+scale = Vector2( 0.32, 0.32 )
+z_index = 1
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility", "texture" ]
+
+[node name="target" type="Sprite" parent="." index="2"]
+visible = false
+modulate = Color( 0.707031, 0, 0, 1 )
+light_mask = 0
+position = Vector2( -0.350586, 2.13892 )
+scale = Vector2( 0.19, 0.19 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="infobox" type="TextureRect" parent="." index="3"]
+editor/display_folded = true
+visible = false
+self_modulate = Color( 0.078125, 1, 0, 0.476902 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -326.0
+margin_top = -137.0
+margin_right = 4510.0
+margin_bottom = 2340.0
+rect_scale = Vector2( 0.11, 0.11 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 0
+
+[node name="username" type="Label" parent="infobox" index="0"]
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -600.0
+margin_top = 137.0
+margin_right = -409.0
+margin_bottom = 156.0
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "Demo Ship"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors" ]
+
+[node name="velocity" type="Label" parent="infobox" index="1"]
+self_modulate = Color( 1, 0.9375, 0, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -1989.0
+margin_top = 146.0
+margin_right = -1901.0
+margin_bottom = 168.0
+rect_scale = Vector2( 11, 11 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0.960938, 0.0788269, 0.0788269, 1 )
+text = "1 m/s"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="position_title" type="Label" parent="infobox" index="2"]
+modulate = Color( 0.372549, 1, 0.219608, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -270.316
+margin_top = 2298.15
+margin_right = -138.316
+margin_bottom = 2339.15
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "position
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_colors" ]
+
+[node name="global_pos" type="Label" parent="infobox" index="3"]
+modulate = Color( 1, 0.952941, 0.247059, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -241.16
+margin_top = 2145.78
+margin_right = -109.16
+margin_bottom = 2164.78
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "(23433,394898)"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors" ]
+
+[node name="heading_title" type="Label" parent="infobox" index="4"]
+modulate = Color( 0.364706, 1, 0.231373, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -2641.83
+margin_top = 966.658
+margin_right = -2515.83
+margin_bottom = 1007.66
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "Heading
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Hint", "Margin", "Visibility", "custom_colors" ]
+
+[node name="heading" type="Label" parent="infobox" index="5"]
+modulate = Color( 1, 0.952941, 0.247059, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -1841.73
+margin_top = 988.0
+margin_right = -1715.73
+margin_bottom = 1029.0
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "3.35
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors" ]
+
+[node name="physics" type="Label" parent="infobox" index="6"]
+modulate = Color( 1, 0.952941, 0.247059, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -1841.38
+margin_top = 1222.0
+margin_right = -1715.38
+margin_bottom = 1263.0
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "3.35
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors" ]
+
+[node name="physics_title" type="Label" parent="infobox" index="7"]
+modulate = Color( 0.176471, 1, 0.207843, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -2633.83
+margin_top = 1215.39
+margin_right = -2507.83
+margin_bottom = 1278.39
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "Physics
+
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors" ]
+
+[node name="process" type="Label" parent="infobox" index="8"]
+modulate = Color( 1, 0.952941, 0.247059, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -1652.38
+margin_top = 1447.0
+margin_right = -1557.38
+margin_bottom = 1488.0
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "3.35
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors" ]
+
+[node name="process_title" type="Label" parent="infobox" index="9"]
+modulate = Color( 0.176471, 1, 0.207843, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -2449.66
+margin_top = 1432.88
+margin_right = -2354.66
+margin_bottom = 1467.88
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "Process"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors" ]
+
+[node name="fps" type="Label" parent="infobox" index="10"]
+modulate = Color( 1, 0.482353, 0.227451, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = 1420.61
+margin_top = 1213.2
+margin_right = 1509.61
+margin_bottom = 1254.2
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "FPS
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors" ]
+
+[node name="fps_title" type="Label" parent="infobox" index="11"]
+modulate = Color( 1, 0.482353, 0.227451, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = 1420.0
+margin_top = 1016.51
+margin_right = 1509.0
+margin_bottom = 1057.51
+rect_scale = Vector2( 12, 12 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "FPS
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors" ]
+
+[node name="velocity_visual" type="Line2D" parent="." index="4"]
+visible = false
+light_mask = 0
+points = PoolVector2Array( 159.692, -26.6254, 0, 0 )
+width = 30.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 7 )
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Border", "Capping", "Fill", "Material", "Visibility", "texture" ]
+
+[node name="shield" type="AnimatedSprite" parent="." index="5"]
+self_modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+light_mask = 0
+position = Vector2( 1.55206, -1.08268 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 1
+frames = SubResource( 3 )
+animation = "default"
+frame = 15
+playing = true
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="ghost_ship" type="Sprite" parent="." index="6"]
+visible = false
+self_modulate = Color( 0.507813, 0.507813, 0.507813, 0.292824 )
+light_mask = 0
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 28 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="map_icon" type="Sprite" parent="." index="7"]
+visible = false
+light_mask = 0
+scale = Vector2( 1.1, 1.1 )
+z_index = 2
+texture = ExtResource( 29 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="ship_light" type="Light2D" parent="." index="8"]
+modulate = Color( 0.487732, 0.398438, 1, 1 )
+light_mask = 3
+position = Vector2( 0, -1.39667 )
+scale = Vector2( 2, -2 )
+enabled = true
+editor_only = false
+texture = ExtResource( 30 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 0, 0, 0, 1 )
+energy = 1.0
+mode = 0
+range_height = 60.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = -1
+range_layer_max = 2
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0.941176 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.6
+shadow_filter = 2
+shadow_filter_smooth = 11.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range", "Shadow" ]
+
+[node name="ship_light_shadow" type="Light2D" parent="." index="9"]
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 3
+position = Vector2( 111.873, -17.6107 )
+scale = Vector2( 1.5, -1.5 )
+enabled = false
+editor_only = false
+texture = ExtResource( 30 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 0.806627 )
+energy = 1.0
+mode = 0
+range_height = 90.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = -2
+range_layer_max = 2
+range_item_cull_mask = 3
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_buffer_size = 2049
+shadow_gradient_length = 1.3
+shadow_filter = 2
+shadow_filter_smooth = 11.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range", "Shadow", "Visibility" ]
+
+[node name="animation" type="AnimationPlayer" parent="." index="10"]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/pulse_shield = SubResource( 4 )
+anims/rotate_target = SubResource( 5 )
+blend_times = [  ]
+
+[node name="open_info" type="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource( 31 )
+volume_db = -8.0
+pitch_scale = 0.8
+autoplay = false
+mix_target = 0
+bus = "SFX"
+
+[node name="close_info" type="AudioStreamPlayer" parent="." index="12"]
+stream = ExtResource( 32 )
+volume_db = -18.0
+pitch_scale = 0.7
+autoplay = false
+mix_target = 0
+bus = "SFX"
+
+[connection signal="gui_input" from="target_click" to="." method="_on_target_click_gui_input"]
+[connection signal="mouse_entered" from="target_click" to="." method="_on_target_click_mouse_entered"]
+[connection signal="mouse_exited" from="target_click" to="." method="_on_target_click_mouse_exited"]

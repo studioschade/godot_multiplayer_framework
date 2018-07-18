@@ -1,0 +1,795 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://lobby.gd" type="Script" id=1]
+[ext_resource path="res://square_lcd_gray.png" type="Texture" id=2]
+[ext_resource path="res://green_lcd.tscn" type="PackedScene" id=3]
+[ext_resource path="res://screen_gray.png" type="Texture" id=4]
+[ext_resource path="res://authentication.gd" type="Script" id=5]
+
+[sub_resource type="Theme" id=6]
+
+_sections_unfolded = [ "default_font" ]
+
+[sub_resource type="InputEventJoypadMotion" id=4]
+
+device = 0
+axis = 0
+axis_value = 0.0
+
+[sub_resource type="ShortCut" id=5]
+
+shortcut = SubResource( 4 )
+
+[node name="lobby" type="Control" groups=[
+"lobby",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -683.0
+margin_top = -384.0
+margin_right = -643.0
+margin_bottom = -344.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme = SubResource( 6 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Rect", "Size Flags", "Theme" ]
+
+[node name="advanced" type="Control" parent="." index="0"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 202.0
+margin_top = 75.0
+margin_right = 1526.0
+margin_bottom = 211.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 6 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="ip_address" type="LineEdit" parent="advanced" index="0"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.976562, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -229.148
+margin_top = 84.4854
+margin_right = -66.1478
+margin_bottom = 116.485
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 6 )
+text = "35.196.153.143"
+max_length = 15
+secret_character = "*"
+focus_mode = 2
+context_menu_enabled = false
+placeholder_text = "IP Address"
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Placeholder" ]
+
+[node name="text_input" type="TextureRect" parent="advanced/ip_address" index="2"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -147.625
+margin_top = -22.0625
+margin_right = 333.375
+margin_bottom = 81.9375
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Hint", "Rect", "Theme" ]
+
+[node name="port" type="LineEdit" parent="advanced" index="1"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.976562, 1 )
+light_mask = 0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -592.049
+margin_top = 14.2975
+margin_right = -491.049
+margin_bottom = 46.2975
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 6 )
+max_length = 5
+secret_character = "*"
+focus_mode = 1
+context_menu_enabled = false
+placeholder_text = "8910"
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Placeholder", "Rect" ]
+
+[node name="text_input" type="TextureRect" parent="advanced/port" index="2"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -166.562
+margin_top = -21.0
+margin_right = 314.438
+margin_bottom = 83.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Theme" ]
+
+[node name="label" type="Label" parent="advanced/port" index="3"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -57.4375
+margin_top = 0.625008
+margin_right = 14.5625
+margin_bottom = 27.625
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0.145098, 1, 0, 1 )
+text = "Port:"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="host" type="Button" parent="advanced" index="2"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.203125, 1 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -691.792
+margin_top = 45.5347
+margin_right = -521.792
+margin_bottom = 96.5347
+rect_scale = Vector2( 1.3, 1.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Host Server"
+flat = true
+align = 1
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility", "custom_fonts" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="button" type="TextureRect" parent="advanced/host" index="0"]
+self_modulate = Color( 0.96875, 0, 1, 1 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -95.788
+margin_top = 5.42404
+margin_right = 385.212
+margin_bottom = 109.424
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 6 )
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="connect_to_ip" type="Button" parent="advanced" index="3"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.203125, 1 )
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -340.693
+margin_top = 115.0
+margin_right = -86.6935
+margin_bottom = 165.0
+rect_scale = Vector2( 1.3, 1.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Connect"
+flat = true
+align = 1
+_sections_unfolded = [ "Custom Colors", "Custom Styles", "Size Flags", "Theme", "Visibility", "custom_fonts" ]
+
+[node name="button" type="TextureRect" parent="advanced/connect_to_ip" index="0"]
+self_modulate = Color( 0.96875, 0, 1, 1 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -82.0
+margin_top = 3.0
+margin_right = 315.0
+margin_bottom = 107.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+
+[node name="info" type="Label" parent="advanced" index="4"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 258.0
+margin_top = -25.0
+margin_right = 1047.0
+margin_bottom = 3.8147e-06
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = SubResource( 6 )
+text = "You must run another copy of the game to play on a local server. "
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="panel" type="Control" parent="." index="1"]
+self_modulate = Color( 0.703125, 0.703125, 0.703125, 0 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = 472.0
+margin_top = 271.0
+margin_right = 1309.0
+margin_bottom = 775.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource( 6 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
+
+[node name="server_selector" type="OptionButton" parent="panel" index="0"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.976562, 1 )
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -634.5
+margin_top = -143.0
+margin_right = -437.5
+margin_bottom = -114.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 6 )
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Cloud Server"
+flat = true
+align = 2
+items = [ "Cloud Server", null, false, 0, null, "Local Server", null, false, 1, null, "Advanced", null, false, 2, null ]
+selected = 0
+_sections_unfolded = [ "Theme" ]
+
+[node name="button2" type="TextureRect" parent="panel/server_selector" index="1"]
+self_modulate = Color( 0.96875, 0, 1, 1 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -94.5
+margin_top = -13.4896
+margin_right = 303.5
+margin_bottom = 90.5104
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 6 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+
+[node name="address" type="LineEdit" parent="panel" index="1"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -195.0
+margin_top = -90.0
+margin_right = -58.0
+margin_bottom = -61.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 6 )
+text = "35.196.153.143"
+secret_character = "*"
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="username" type="LineEdit" parent="panel" index="2"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.976562, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -233.0
+margin_top = 345.0
+margin_right = -70.0
+margin_bottom = 377.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 6 )
+max_length = 15
+secret_character = "*"
+focus_mode = 2
+context_menu_enabled = false
+placeholder_text = "  username"
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Placeholder" ]
+
+[node name="text_input" type="TextureRect" parent="panel/username" index="2"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -127.25
+margin_top = -35.0
+margin_right = 353.75
+margin_bottom = 69.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="password" type="LineEdit" parent="panel" index="3"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.976562, 1 )
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -37.0
+margin_top = 344.0
+margin_right = 126.0
+margin_bottom = 376.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 6 )
+max_length = 15
+secret = true
+secret_character = "*"
+focus_mode = 2
+context_menu_enabled = false
+placeholder_text = "  password"
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Placeholder", "Theme" ]
+
+[node name="text_input2" type="TextureRect" parent="panel/password" index="2"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -122.5
+margin_top = -69.0
+margin_right = 358.5
+margin_bottom = 35.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="join" type="Button" parent="panel" index="4"]
+editor/display_folded = true
+visible = false
+self_modulate = Color( 0, 1, 0.203125, 1 )
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -670.512
+margin_top = 236.742
+margin_right = -513.512
+margin_bottom = 287.742
+rect_scale = Vector2( 1.3, 1.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Connect"
+flat = true
+align = 1
+_sections_unfolded = [ "Size Flags", "Visibility", "custom_fonts" ]
+
+[node name="button" type="TextureRect" parent="panel/join" index="0"]
+self_modulate = Color( 0.96875, 0, 1, 1 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -74.628
+margin_top = 3.0
+margin_right = 302.372
+margin_bottom = 107.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "texture" ]
+
+[node name="connect_to_cloud" type="Button" parent="panel" index="5"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.203125, 1 )
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -351.25
+margin_top = 384.0
+margin_right = -135.25
+margin_bottom = 435.0
+rect_scale = Vector2( 1.3, 1.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = SubResource( 5 )
+group = null
+text = "Connect to Cloud"
+flat = true
+align = 1
+_sections_unfolded = [ "Custom Colors", "Custom Styles", "Rect", "Size Flags", "Theme", "Visibility", "custom_fonts", "theme" ]
+
+[node name="button" type="TextureRect" parent="panel/connect_to_cloud" index="0"]
+self_modulate = Color( 0.96875, 0, 1, 1 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -109.408
+margin_top = 3.0
+margin_right = 447.592
+margin_bottom = 107.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Theme" ]
+
+[node name="connect_to_local" type="Button" parent="panel" index="6"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.203125, 1 )
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -57.1177
+margin_top = 384.191
+margin_right = 158.882
+margin_bottom = 435.191
+rect_scale = Vector2( 1.3, 1.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Connect to Local"
+flat = true
+align = 1
+_sections_unfolded = [ "Custom Colors", "Custom Styles", "Size Flags", "Theme", "Visibility", "custom_fonts" ]
+
+[node name="button" type="TextureRect" parent="panel/connect_to_local" index="0"]
+self_modulate = Color( 0.96875, 0, 1, 1 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -109.408
+margin_top = 3.0
+margin_right = 447.592
+margin_bottom = 107.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="status_ok" type="Label" parent="panel" index="7"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 39.0
+margin_top = 551.0
+margin_right = 682.0
+margin_bottom = 576.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = SubResource( 6 )
+text = "Enter an unclaimed username to register with server"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="green_lcd" parent="panel/status_ok" index="0" instance=ExtResource( 3 )]
+self_modulate = Color( 0.96875, 0, 1, 1 )
+margin_left = -340.5
+margin_top = -15.0
+margin_right = 1025.5
+margin_bottom = 85.0
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="status_fail" type="Label" parent="panel" index="8"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 38.0
+margin_top = 548.0
+margin_right = 691.0
+margin_bottom = 573.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = SubResource( 6 )
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="advanced" type="Button" parent="panel" index="9"]
+editor/display_folded = true
+self_modulate = Color( 0, 1, 0.203125, 1 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -77.8743
+margin_top = -335.117
+margin_right = 80.1257
+margin_bottom = -284.117
+rect_scale = Vector2( 1.3, 1.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 6 )
+toggle_mode = true
+enabled_focus_mode = 0
+shortcut = null
+group = null
+text = "Advanced"
+flat = true
+align = 1
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility", "custom_fonts" ]
+
+[node name="button" type="TextureRect" parent="panel/advanced" index="0"]
+self_modulate = Color( 0.96875, 0, 1, 1 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -87.0
+margin_top = 3.0
+margin_right = 341.0
+margin_bottom = 107.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 6 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="authentication" type="Node" parent="." index="2"]
+script = ExtResource( 5 )
+
+[connection signal="text_entered" from="advanced/ip_address" to="." method="_on_ip_address_text_entered"]
+[connection signal="text_entered" from="advanced/port" to="." method="_on_port_text_entered"]
+[connection signal="pressed" from="advanced/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="advanced/connect_to_ip" to="." method="_on_connect_to_ip_pressed"]
+[connection signal="item_selected" from="panel/server_selector" to="." method="_on_server_selector_item_selected"]
+[connection signal="pressed" from="panel/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="panel/connect_to_cloud" to="." method="_on_connect_to_cloud_pressed"]
+[connection signal="pressed" from="panel/connect_to_local" to="." method="_on_connect_to_local_pressed"]
+[connection signal="toggled" from="panel/advanced" to="." method="_on_advanced_toggled"]
